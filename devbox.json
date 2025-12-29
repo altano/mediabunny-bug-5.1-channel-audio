@@ -1,9 +1,4 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
-  "packages": ["pnpm@latest", "nodejs@latest", "ffmpeg@latest", "zx@latest"],
-  "shell": {
-    "scripts": {
-      "test": ["echo \"Error: no test specified\" && exit 1"]
-    }
-  }
+  "packages": ["pnpm@latest", "nodejs@latest", "ffmpeg@latest", "zx@latest"]
 }

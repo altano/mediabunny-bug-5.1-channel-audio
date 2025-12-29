@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bad Test - 5.1 Surround Audio</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        line-height: 1.6;
+      }
+      h1 {
+        color: #f44336;
+      }
+      .info {
+        margin-top: 2rem;
+        padding: 1rem;
+        background: #e8f5e9;
+        border-radius: 4px;
+        border-left: 4px solid #4caf50;
+      }
+      .warning {
+        margin-top: 1rem;
+        padding: 1rem;
+        background: #fff3e0;
+        border-radius: 4px;
+        border-left: 4px solid #ff9800;
+      }
+      .player {
+        margin-top: 2rem;
+        padding: 1.5rem;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        background: #f5f5f5;
+      }
+      .status {
+        margin-top: 1rem;
+        font-family: monospace;
+        padding: 1rem;
+        background: white;
+        border-radius: 4px;
+      }
+      .error {
+        color: #f44336;
+        font-weight: bold;
+      }
+      .back-link {
+        display: inline-block;
+        margin-bottom: 1rem;
+        color: #666;
+        text-decoration: none;
+      }
+      .back-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/" class="back-link">← Back to tests</a>
+
+    <h1>❌ Bad Test - 5.1 Surround Audio</h1>
+
+    <div class="info">
+      <h2>Expected behavior:</h2>
+      <p>
+        MediaBunny's AudioBufferSink should decode and play this successfully in
+        <strong>all browsers</strong> (Chrome, Firefox, Safari).
+      </p>
+    </div>
+    <div class="warning">
+      <h2>Actual behavior:</h2>
+      <p>
+        This test uses a 5.1 channel (surround sound) AAC audio file.
+        MediaBunny's AudioBufferSink attempts to decode this, but different
+        browsers handle this differently:
+      </p>
+      <ul>
+        <li>
+          <strong>Chrome:</strong> ✅ Works correctly - decodes and plays
+          successfully
+        </li>
+        <li>
+          <strong>Firefox:</strong> ✅ Works correctly - decodes and plays
+          successfully
+        </li>
+        <li>
+          <strong>Safari/WebKit:</strong> ❌ Browser tab crashes with "A problem
+          repeatedly occurred"
+        </li>
+      </ul>
+      <p><strong>File:</strong> <code>/sintel-5.1-audio-clip.mp4</code></p>
+      <p><strong>Audio:</strong> AAC, 48000Hz, 6 channels (5.1 surround)</p>
+    </div>
+
+    <div class="player">
+      <h2>Audio Player Status</h2>
+      <div id="root" data-clip-path="/sintel-5.1-audio-clip.mp4"></div>
+    </div>
+
+    <script type="module" src="/src/player.jsx"></script>
+  </body>
+</html>
